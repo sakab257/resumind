@@ -187,14 +187,14 @@ export const AIResponseFormat = `
       ATS: {
         score: number; //rate based on ATS suitability
         tips: {
-          type: "good" | "improve";
+          type: "bien" | "à améliorer";
           tip: string; //give 3-4 tips
         }[];
       };
       toneAndStyle: {
         score: number; //max 100
         tips: {
-          type: "good" | "improve";
+          type: "bien" | "à améliorer";
           tip: string; //make it a short "title" for the actual explanation
           explanation: string; //explain in detail here
         }[]; //give 3-4 tips
@@ -202,7 +202,7 @@ export const AIResponseFormat = `
       content: {
         score: number; //max 100
         tips: {
-          type: "good" | "improve";
+          type: "bien" | "à améliorer";
           tip: string; //make it a short "title" for the actual explanation
           explanation: string; //explain in detail here
         }[]; //give 3-4 tips
@@ -210,7 +210,7 @@ export const AIResponseFormat = `
       structure: {
         score: number; //max 100
         tips: {
-          type: "good" | "improve";
+          type: "bien" | "à améliorer";
           tip: string; //make it a short "title" for the actual explanation
           explanation: string; //explain in detail here
         }[]; //give 3-4 tips
@@ -218,7 +218,7 @@ export const AIResponseFormat = `
       skills: {
         score: number; //max 100
         tips: {
-          type: "good" | "improve";
+          type: "bien" | "à améliorer";
           tip: string; //make it a short "title" for the actual explanation
           explanation: string; //explain in detail here
         }[]; //give 3-4 tips
@@ -232,15 +232,20 @@ export const prepareInstructions = ({
   jobTitle: string;
   jobDescription: string;
 }) =>
-  `You are an expert in ATS (Applicant Tracking System) and resume analysis.
-  Please analyze and rate this resume and suggest how to improve it.
-  The rating can be low if the resume is bad.
-  Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
-  If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
-  If available, use the job description for the job user is applying to give more detailed feedback.
-  If provided, take the job description into consideration.
-  The job title is: ${jobTitle}
-  The job description is: ${jobDescription}
-  Provide the feedback using the following format: ${AIResponseFormat}
-  Return the analysis as a JSON object, without any other text and without the backticks.
-  Do not include any other text or comments.`;
+  `Tu es un expert en ATS (Applicant Tracking System) et en analyse de CV.
+  IMPORTANT: Tu dois répondre entièrement en français. Tous les textes, conseils, et explications doivent être en français.
+  
+  Analyse ce CV et évalue-le en proposant des améliorations.
+  La note peut être basse si le CV n'est pas bon.
+  Sois approfondi et détaillé. N'hésite pas à souligner les erreurs ou les points à améliorer.
+  S'il y a beaucoup à améliorer, n'hésite pas à donner des notes basses. C'est pour aider l'utilisateur à améliorer son CV.
+  
+  Utilise la description du poste pour donner un feedback plus détaillé et personnalisé.
+  Titre du poste : ${jobTitle}
+  Description du poste : ${jobDescription}
+  
+  TOUS les conseils (tip) et explications (explanation) doivent être en français.
+  
+  Fournis le feedback en utilisant ce format : ${AIResponseFormat}
+  Retourne l'analyse sous forme d'objet JSON, sans autre texte et sans les backticks.
+  N'inclus aucun autre texte ou commentaire.`;

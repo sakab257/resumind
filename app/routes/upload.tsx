@@ -6,6 +6,14 @@ import Navbar from '~/components/navbar'
 import { convertPdfToImage } from '~/lib/pdf2img';
 import { usePuterStore } from '~/lib/puter';
 import { generateUUID } from '~/lib/utils';
+import type { Route } from "./+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Resumind - Telechargement du CV" },
+    { name: "description", content: "Feedback intelligent pour votre future carrière!" },
+  ];
+}
 
 const Upload = () => {
     const {auth, isLoading, fs, ai, kv} = usePuterStore();
@@ -70,6 +78,7 @@ const Upload = () => {
 
         setStatus('Terminé ! Redirection vers les résultats...');
         console.log(data);
+        navigate(`/resume/${uuid}`);
     }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
