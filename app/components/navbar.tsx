@@ -7,7 +7,7 @@ const Navbar = () => {
         <Link to="/">
             <p className='text-2xl font-bold text-gradient'>RESUMIND</p>
         </Link>
-        <Link to="/" className='primary-button w-fit'>Télécharger votre CV</Link>
+        <Link to="/upload" className='primary-button w-fit'>Télécharger votre CV</Link>
     </nav>
   )
 }
