@@ -112,7 +112,7 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
         <AccordionItem id="tone-style">
           <AccordionHeader itemId="tone-style">
             <CategoryHeader
-              title="Tone & Style"
+              title="Ton & Style"
               categoryScore={feedback.toneAndStyle.score}
             />
           </AccordionHeader>
@@ -123,7 +123,7 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
         <AccordionItem id="content">
           <AccordionHeader itemId="content">
             <CategoryHeader
-              title="Content"
+              title="Contenu"
               categoryScore={feedback.content.score}
             />
           </AccordionHeader>
@@ -145,7 +145,7 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
         <AccordionItem id="skills">
           <AccordionHeader itemId="skills">
             <CategoryHeader
-              title="Skills"
+              title="Compétences"
               categoryScore={feedback.skills.score}
             />
           </AccordionHeader>
