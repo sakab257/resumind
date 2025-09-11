@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 import Details from '~/components/details';
 import Summary from '~/components/summary';
+import ATS from '~/components/ats'
 import { usePuterStore } from '~/lib/puter';
 
 const Resume = () => {
@@ -70,7 +71,7 @@ const Resume = () => {
           {feedback ? (
             <div className='flex flex-col gap-8 animate-in fade-in duration-1000'>
               <Summary feedback={feedback}/>
-              <ATS score={feedback.ATS.score || 0} suggestions={feedback.padStart.tips || []} />
+              <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
 
               <Details feedback={feedback}/>
             </div>
