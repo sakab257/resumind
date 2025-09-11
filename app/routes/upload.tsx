@@ -77,7 +77,6 @@ const Upload = () => {
         await kv.set(`analysis-${uuid}`, JSON.stringify(data));
 
         setStatus('Terminé ! Redirection vers les résultats...');
-        console.log(data);
         navigate(`/resume/${uuid}`);
     }
 
