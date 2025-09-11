@@ -10,7 +10,7 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resumind - Telechargement du CV" },
+    { title: "Resumind | Telechargement du CV" },
     { name: "description", content: "Feedback intelligent pour votre future carrière!" },
   ];
 }

@@ -4,6 +4,14 @@ import Details from '~/components/details';
 import Summary from '~/components/summary';
 import ATS from '~/components/ats'
 import { usePuterStore } from '~/lib/puter';
+import type { Route } from "./+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Resumind | Analyse du CV" },
+    { name: "description", content: '' },
+  ];
+}
 
 const Resume = () => {
   const {auth, isLoading, fs, kv} = usePuterStore();
